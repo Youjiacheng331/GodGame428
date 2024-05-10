@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 4755407449275212185}
   - component: {fileID: 9175954837182345362}
   - component: {fileID: 6107809951346419874}
+  - component: {fileID: 4890338276334587222}
+  - component: {fileID: -2151881486185065123}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -160,10 +162,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a8bf8a79771424cab5475465d7f539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Skill: 100
-  offenseArea: 5
+  Stamina: 100
   Water: 5
   moveSpeed: 10
   jumpForce: 10
   FoV: 100
   CameraPosition: {x: 0, y: 0, z: 0}
+  StaminaBar: {fileID: 0}
+--- !u!114 &4890338276334587222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508753664165143367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ab3cc8da794f4d469ea9deb16c80f7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackobj: {fileID: 0}
+  cost: 0
+--- !u!114 &-2151881486185065123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508753664165143367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f76f6e99a796efd429f23a668a050d0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterobj: {fileID: 0}
