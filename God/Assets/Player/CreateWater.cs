@@ -7,10 +7,12 @@ public class CreateWater : MonoBehaviour
     [SerializeField]
     GameObject waterobj;
 
+    GameObject Maincamera;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        Maincamera = GameObject.Find("Main Camera");
     }
 
     // Update is called once per frame
@@ -22,7 +24,11 @@ public class CreateWater : MonoBehaviour
             {
                 //ê∂ê¨èàóù
 
+                GameObject water = Instantiate(waterobj, transform.position, Quaternion.identity);
 
+                Vector3 forward = Maincamera.transform.forward;
+
+                water.GetComponent<Rigidbody>().AddForce(forward * 500.0f);
 
                 //
 

@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: -2151881486185065123}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -181,8 +181,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab3cc8da794f4d469ea9deb16c80f7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackobj: {fileID: 0}
+  attackobj: {fileID: 6306175954440390778, guid: fcb6f3f3d6b14b545bf70344ec65ccda, type: 3}
   cost: 0
+  mat: {fileID: 2100000, guid: e53832813d94e734790b3df0bc759ada, type: 2}
 --- !u!114 &-2151881486185065123
 MonoBehaviour:
   m_ObjectHideFlags: 0
