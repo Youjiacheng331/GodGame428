@@ -8,9 +8,10 @@ public class UI_Holywater : MonoBehaviour
     public Text holyWoter;
 
     //聖水の初期値
-    private int woter = 10;
+    private int woter = 5;
     private int maxWoter;
     private int wave;//一時的にウェーブを使用
+    public bool woter0 = false;
 
     private void Start()
     {
@@ -21,22 +22,29 @@ public class UI_Holywater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //もし聖水を投擲する操作がされたら（仮としてspaceキーを入れてます）
-        if(Input.GetKeyDown(KeyCode.Space))
+        //聖水が０個というフラグがオフならば
+        if (woter0 == false)
         {
-            //もし聖水の数が１以上なら
-            if (woter >0)
-            {
-                //残りの聖水数を１減らす
-                woter--;
+            //もし聖水を投擲する操作がされたら（仮としてspaceキーを入れてます）
+            if (Input.GetKeyDown(KeyCode.Space))
+            { 
+                    //残りの聖水数を１減らす
+                    woter--;
             }
             
-            
+            //もし聖水が０ならフラグオン
+            if(woter == 0)
+            {
+                woter0 = true;
+            }
+
+
         }
         //UI更新（X残りの聖水の数）
         holyWoter.text = "x" + woter.ToString();
     }
 
+    //ウェーブ別で聖水が補充される改変をする場合に使用。（念のため）
     public void UpdateMaxWoter(int newWave)
     {
         wave = newWave;
@@ -52,7 +60,7 @@ public class UI_Holywater : MonoBehaviour
                 maxWoter = 10;
                 break;
             default:
-                maxWoter = 10;
+                maxWoter = 5;
                 break;
 
         }

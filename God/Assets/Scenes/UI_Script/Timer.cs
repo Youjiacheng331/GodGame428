@@ -9,8 +9,7 @@ public class Timer : MonoBehaviour
     public Text timerText;
     public Text waveText;
     private TimeSpan timeLeft;
-    private bool timerRunning = false;//このフラグはシーン遷移等にお使いください
-    private int waveNumber = 1;//初期のウェーブ番号
+    public static int waveNumber = 1;//初期のウェーブ番号
     private int waveNumbermax = 5;//ウェーブ最大数
 
     // Start is called before the first frame update
@@ -22,8 +21,6 @@ public class Timer : MonoBehaviour
         timerText.text = timeLeft.ToString(@"m\:ss");
         //ウェーブのテキスト表示の形式の設定（X/最大数WAVE）
         waveText.text = waveNumber.ToString() + "/"+waveNumbermax.ToString()+"WAVE";
-        //タイマーが動いてるフラグをOnにする
-        timerRunning = true;
     }
 
     // Update is called once per frame
@@ -44,6 +41,8 @@ public class Timer : MonoBehaviour
                 waveNumber++;
                 //テキストに反映
                 waveText.text = waveNumber.ToString() + "/" + waveNumbermax.ToString() + "WAVE";
+
+                
             }
 
 
@@ -53,9 +52,17 @@ public class Timer : MonoBehaviour
         {
             //テキストの固定
             timerText.text = "0:00";
-            //タイマーが動いてるフラグをOffにする
-            timerRunning = false;
+            //ゲームクリア処理
+            GameClear();
         }
 
     }
+
+    private void GameClear()
+    {
+        //ゲームクリア時の処理（暫定）
+        Debug.Log("GAME CLEAR");
+        //ゲームオーバー時のUI表示など
+    }
+
 }
