@@ -16,6 +16,8 @@ public class GameSystem : MonoBehaviour
     [SerializeField]
     GameObject GhostPrefab;
 
+    int CreateTime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,8 @@ public class GameSystem : MonoBehaviour
 
         GameOver = false;
         GameClear = false;
+
+        CreateTime = 0;
     }
 
     // Update is called once per frame
@@ -108,7 +112,7 @@ public class GameSystem : MonoBehaviour
 
         RespawnPos.y = 0.0f;
 
-        if (WaveStart == false)
+        if (WaveStart == false && CreateTime != (int)CountDown) 
         {
 
             switch (wave)
@@ -116,6 +120,7 @@ public class GameSystem : MonoBehaviour
                 case 1:
                     if ((int)CountDown % 6 == 0 && CountDown > 0)
                     {
+                        CreateTime = (int)CountDown;
                         // オブジェクトを生成
                         GameObject ghost = Instantiate(GhostPrefab, RespawnPos, Quaternion.identity);
                     }
@@ -123,6 +128,7 @@ public class GameSystem : MonoBehaviour
                 case 2:
                     if ((int)CountDown % 5 == 0 && CountDown > 0)
                     {
+                        CreateTime = (int)CountDown;
                         // オブジェクトを生成
                         GameObject ghost = Instantiate(GhostPrefab, RespawnPos, Quaternion.identity);
                     }
@@ -130,6 +136,7 @@ public class GameSystem : MonoBehaviour
                 case 3:
                     if ((int)CountDown % 3 == 0 && CountDown > 0)
                     {
+                        CreateTime = (int)CountDown;
                         // オブジェクトを生成
                         GameObject ghost = Instantiate(GhostPrefab, RespawnPos, Quaternion.identity);
                     }

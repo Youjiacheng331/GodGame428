@@ -15,9 +15,11 @@ public class Ghost : MonoBehaviour
     {
         
     }
+
+
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Pray")
+        if (collision.gameObject.tag == "Water")
         {
             Destroy(this.gameObject);
             Debug.Log("hit");
@@ -31,5 +33,13 @@ public class Ghost : MonoBehaviour
             Destroy(this.gameObject);
             Debug.Log("hit");
         }
+
+        if (other.gameObject.tag == "Water")
+        {
+            Destroy(this.gameObject);
+            Debug.Log("hit");
+        }
     }
+
+   
 }
