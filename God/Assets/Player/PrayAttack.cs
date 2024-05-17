@@ -13,6 +13,7 @@ public class PrayAttack : MonoBehaviour
     float cost;
 
     GameObject pray;
+    GameObject pray2;
 
     [SerializeField]
     Material mat;
@@ -35,30 +36,30 @@ public class PrayAttack : MonoBehaviour
                 //オブジェクト生成
                 pray = Instantiate(attackobj, transform.position, Quaternion.identity);
 
-                //// Cylinderの生成
-                //pray = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-                //pray.transform.position = transform.position;
-                //pray.transform.localScale = new Vector3(8, 1.5f, 8);
+                // Cylinderの生成
+                pray2 = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+                pray2.transform.position = transform.position;
+                pray2.transform.localScale = new Vector3(7, 2, 7);
 
-                //// Colliderオブジェクトの描画は不要なのでRendererを消す
-                ////Destroy(pray.GetComponent<MeshRenderer>());
-                //pray.GetComponent<MeshRenderer>().material = mat;
+                // Colliderオブジェクトの描画は不要なのでRendererを消す
+                //Destroy(pray.GetComponent<MeshRenderer>());
+                pray2.GetComponent<MeshRenderer>().material = mat;
 
-                //// 元々存在するColliderを削除
-                //Collider[] colliders = pray.GetComponents<Collider>();
-                //for (int i = 0; i < colliders.Length; i++)
-                //{
-                //    Destroy(colliders[i]);
-                //}
+                // 元々存在するColliderを削除
+                Collider[] colliders = pray2.GetComponents<Collider>();
+                for (int i = 0; i < colliders.Length; i++)
+                {
+                    colliders[i].isTrigger = true;
+                }
 
-                //// メッシュの面を逆にしてからMeshColliderを設定
-                ////var mesh = pray.GetComponent<MeshFilter>().mesh;
-                ////mesh.triangles = mesh.triangles.Reverse().ToArray();
-                //pray.AddComponent<MeshCollider>();
+                //メッシュの面を逆にしてからMeshColliderを設定
+                var mesh = pray2.GetComponent<MeshFilter>().mesh;
+                mesh.triangles = mesh.triangles.Reverse().ToArray();
 
-                //pray.GetComponent<MeshCollider>().convex = true;
 
-                //pray.tag = "Pray";
+
+
+
 
                 //
 
@@ -71,11 +72,19 @@ public class PrayAttack : MonoBehaviour
             {
                 GetComponent<PlayerParameter>().Stamina -= cost;
                 pray.transform.position = transform.position;
+                if (pray2 != null)
+                {
+                    pray2.transform.position = transform.position;
+                }
             }
 
             if(GetComponent<PlayerParameter>().Stamina < cost && pray != null)
             {
                 Destroy(pray);
+                if (pray2 != null)
+                {
+                    Destroy(pray2);
+                }
             }
         }
 
@@ -84,6 +93,10 @@ public class PrayAttack : MonoBehaviour
             if (pray != null)
             {
                Destroy(pray);
+            }
+            if (pray2 != null)
+            {
+                Destroy(pray2);
             }
         }
 

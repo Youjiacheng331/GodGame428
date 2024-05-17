@@ -106,9 +106,9 @@ public class GameSystem : MonoBehaviour
     {
         Vector3 RespawnPos;
 
-        RespawnPos.x = Random.Range(-25.0f, 25.0f);
+        RespawnPos.x = Random.Range(-7.0f, 7.0f);
 
-        RespawnPos.z = Random.Range(-25.0f, 25.0f);
+        RespawnPos.z = Random.Range(-21.0f, 11.0f);
 
         RespawnPos.y = 0.0f;
 
