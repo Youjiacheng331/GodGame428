@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerParameter : MonoBehaviour
 {
     //プレイヤーのParameterを設定するためのファイル
 
 
-    [Header("祈りケージ")]
-    public float Skill = 100.0f;
+    [Header("スタミナ")]
+    public float Stamina = 100.0f;
 
-    [Header("祈り半径")]
-    public float offenseArea = 5.0f;
-
+   
     [Header("聖水残量")]
     public int Water = 5;
 
@@ -33,6 +32,10 @@ public class PlayerParameter : MonoBehaviour
     // カメラオブジェクト
     GameObject MainCamera;
 
+    [Header("スタミナバー")]
+    [SerializeField]
+    Slider StaminaBar;
+
 
     // Start is called before the first frame update
     void Start()
@@ -44,5 +47,15 @@ public class PlayerParameter : MonoBehaviour
         MainCamera.transform.eulerAngles = new Vector3(0, 0, 0);
 
         MainCamera.GetComponent<CameraWork>().SetCameraPosition(CameraPosition);
+    }
+
+
+    void Update()
+    {
+        //スタミナバーの変動処理
+
+
+
+
     }
 }
