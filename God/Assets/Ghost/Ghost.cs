@@ -4,23 +4,25 @@ using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject explode; // Reference to the explosion prefab
+
+
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
 
+    }
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Water")
         {
+            Instantiate(explode, collision.contacts[0].point, Quaternion.identity);
             Destroy(this.gameObject);
             Debug.Log("hit");
         }
@@ -28,18 +30,11 @@ public class Ghost : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Pray")
+        if (other.gameObject.tag == "Pray" || other.gameObject.tag == "Water")
         {
-            Destroy(this.gameObject);
-            Debug.Log("hit");
-        }
-
-        if (other.gameObject.tag == "Water")
-        {
+            Instantiate(explode, other.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
             Debug.Log("hit");
         }
     }
-
-   
 }

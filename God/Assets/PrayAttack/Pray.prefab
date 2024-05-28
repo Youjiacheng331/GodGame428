@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -4575209545015221598}
   m_Layer: 0
   m_Name: Pray
-  m_TagString: Untagged
+  m_TagString: Pray
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
