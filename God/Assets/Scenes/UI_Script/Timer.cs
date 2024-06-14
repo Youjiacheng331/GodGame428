@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Timer : MonoBehaviour
     private TimeSpan timeLeft;
     public static int waveNumber = 1;//初期のウェーブ番号
     private int waveNumbermax = 5;//ウェーブ最大数
+
+    private string gameClearSceneName = "GameClear";
 
     // Start is called before the first frame update
     void Start()
@@ -62,7 +65,8 @@ public class Timer : MonoBehaviour
     {
         //ゲームクリア時の処理（暫定）
         Debug.Log("GAME CLEAR");
-        //ゲームオーバー時のUI表示など
+        //ゲームクリアシーンへの移行
+        SceneManager.LoadScene(gameClearSceneName);
     }
 
 }
